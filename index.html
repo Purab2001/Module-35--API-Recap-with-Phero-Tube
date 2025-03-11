@@ -12,18 +12,28 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
   <body>
-    <head>
-      <nav class="w-11/12 mx-auto flex justify-between items-center border-b-2 py-4">
-        <div class="logo">
-          <img src="assets/Logo.png" alt="">
-        </div>
-        <div class="sort">
-          <button class="btn">Sort by View</button>
-        </div>
-        <div class="blogs">
-          <button class="btn">Blogs</button>
+    <header>
+      <nav class="w-11/12 mx-auto flex justify-between items-center border-b-2 border-gray-300 py-4">
+        <div class="navbar">
+          <div class="navbar-start">
+            <img class="w-32" src="assets/Logo.png" alt="">
+          </div>
+          <div class="navbar-center hidden lg:flex">
+            <button class="btn border-none bg-gray-200">Sort by View</button>
+          </div>
+          <div class="navbar-end">
+            <button class="btn bg-red-500 text-white">Blog</button>
+          </div>
         </div>
       </nav>
-    </head>
+    </header>
+    <nav id="category-container" class="flex justify-center py-5 gap-5">
+      <button class="btn btn-sm">All</button>
+      <button class="btn btn-sm">Music</button>
+      <button class="btn btn-sm">Comedy</button>
+      <button class="btn btn-sm">Drawing</button>
+    </nav>
+
+    <script src="scripts/index.js"></script>
   </body>
 </html>
