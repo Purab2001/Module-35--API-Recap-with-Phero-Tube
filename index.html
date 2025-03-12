@@ -11,41 +11,81 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
-          .active{
-      background-color: #FF1F3D;
-      color: white;
-    }
+      .active {
+        background-color: #ff1f3d;
+        color: white;
+      }
     </style>
   </head>
 
   <body>
     <header>
-      <nav class="w-11/12 mx-auto flex justify-between items-center border-b-2 border-gray-300 py-3">
+      <nav
+        class="w-11/12 mx-auto flex justify-between items-center border-b-2 border-gray-300 py-3"
+      >
         <div class="navbar">
           <div class="navbar-start">
-            <img class="w-32" src="assets/Logo.png" alt="">
+            <img class="w-32" src="assets/Logo.png" alt="" />
           </div>
           <div class="navbar-center hidden lg:flex">
-            <button class="btn border-none bg-gray-200 hover:bg-red-500 hover:text-white">Sort by View</button>
+            <label class="input">
+              <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></g></svg>
+              <input id="search-input" type="search" required placeholder="Search"/>
+            </label>
           </div>
           <div class="navbar-end">
-            <button class="btn bg-red-500 text-white">Blog</button>
+            <button class="btn bg-red-500 text-white">Sort by Views</button>
           </div>
         </div>
       </nav>
     </header>
     <nav id="category-container" class="flex justify-center py-5 gap-5">
       <div>
-        <button id="btn-all" onclick="loadVideos()" class="btn btn-sm border-none bg-gray-200">All</button>
-      </div>     
+        <button
+          id="btn-all"
+          onclick="loadVideos()"
+          class="btn btn-sm border-none bg-gray-200"
+        >
+          All
+        </button>
+      </div>
     </nav>
 
-    <section id="video-container" class="w-11/12 mx-auto grid grid-cols-4 gap-5">
-      <div class="col-span-full flex flex-col items-center justify-center text-center py-30">
-        <img class="w-[120px]" src="assets/Icon.png" alt="">
-        <h2 class="text-2xl font-bold">Oops!! Sorry, <br> There is no content here</h2>
+    <section id="loader" class="text-center py-10 hidden">
+      <span class="loading loading-dots loading-xl"></span>
+    </section>
+
+    <section
+      id="video-container"
+      class="w-11/12 mx-auto grid grid-cols-2 md:grid-cols-4 gap-5"
+    >
+      <div
+        class="col-span-full flex flex-col items-center justify-center text-center py-30"
+      >
+        <img class="w-[120px]" src="assets/Icon.png" alt="" />
+        <h2 class="text-2xl font-bold">
+          Oops!! Sorry, <br />
+          There is no content here
+        </h2>
       </div>
     </section>
+
+    <!-- Open the modal using ID.showModal() method -->
+    <!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
+    <dialog id="video_details" class="modal">
+      <div class="modal-box">
+        <div id="details-container">
+
+        </div>
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
+
 
     <script src="scripts/index.js"></script>
   </body>
